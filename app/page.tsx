@@ -79,6 +79,10 @@ export default function LandingPage() {
       <footer className="border-t px-6 py-8 text-center text-sm text-muted-foreground">
         <Logo className="mx-auto mb-3 justify-center" />
         <p>&copy; {new Date().getFullYear()} MPHFormLink. All rights reserved.</p>
+        <p className="mt-2 flex justify-center gap-4">
+          <Link href="/privacy" className="hover:text-foreground hover:underline">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-foreground hover:underline">Terms of Service</Link>
+        </p>
       </footer>
     </div>
   );

@@ -12,6 +12,7 @@ class EmailNotVerifiedError extends CredentialsSignin {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
+  trustHost: true,
   adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
   providers: [
