@@ -34,4 +34,4 @@ jobs:
       - name: Build and restart
         run: |
           ssh -i ~/.ssh/deploy_key -p "${{ secrets.DEPLOY_PORT }}" "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}" \
-            "export PATH=\$PATH:/home/mphformrelay/.nvm/versions/node/v24.21.0/bin && cd ${{ secrets.DEPLOY_PATH }} && npm ci && npx prisma migrate deploy && npm run build && pm2 restart mphformlink"
+            "export PATH=\$PATH:/home/mphformrelay/.nvm/versions/node/v24.21.0/bin && cd ${{ secrets.DEPLOY_PATH }} && npm ci && npx prisma generate && npx prisma migrate deploy && npm run build && pm2 restart mphformlink"
