@@ -40,3 +40,28 @@ export async function sendEndpointVerificationEmail(
     `,
   });
 }
+
+export async function sendRelayEmail(opts: {
+  to: string;
+  endpointName: string;
+  subject?: string;
+  replyTo?: string;
+  data: Record<string, string>;
+}) {
+  const { to, endpointName, subject, replyTo, data } = opts;
+
+  const rows = Object.entries(data)
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:4px 8px;font-weight:bold;vertical-align:top;">${k}</td><td style="padding:4px 8px;">${v}</td></tr>`
+    )
+    .join("");
+
+  await transporter.sendMail({
+    from: FROM_ADDRESS,
+    to,
+    replyTo,
+    subject: subject || `New submission — ${endpointName}`,
+    html: `<h2>New submission for "${endpointName}"</h2><table>${rows}</table>`,
+  });
+}

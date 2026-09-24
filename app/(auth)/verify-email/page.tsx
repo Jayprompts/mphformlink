@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/db";
 import { consumeVerificationToken } from "@/lib/tokens";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 
 export default async function VerifyEmailPage({
   searchParams,
@@ -11,10 +13,12 @@ export default async function VerifyEmailPage({
 
   if (!token) {
     return (
-      <main style={{ padding: 40 }}>
-        <h1>Invalid link</h1>
-        <p>No verification token was provided.</p>
-      </main>
+      <Card>
+        <CardHeader>
+          <CardTitle>Invalid link</CardTitle>
+          <CardDescription>No verification token was provided.</CardDescription>
+        </CardHeader>
+      </Card>
     );
   }
 
@@ -22,10 +26,12 @@ export default async function VerifyEmailPage({
 
   if (!record) {
     return (
-      <main style={{ padding: 40 }}>
-        <h1>Link expired or invalid</h1>
-        <p>This verification link is no longer valid. Try signing up again, or request a new one.</p>
-      </main>
+      <Card>
+        <CardHeader>
+          <CardTitle>Link expired or invalid</CardTitle>
+          <CardDescription>This verification link is no longer valid. Try signing up again, or request a new one.</CardDescription>
+        </CardHeader>
+      </Card>
     );
   }
 
@@ -35,10 +41,14 @@ export default async function VerifyEmailPage({
   });
 
   return (
-    <main style={{ padding: 40 }}>
-      <h1>Email verified</h1>
-      <p>Your account is now active.</p>
-      <p><Link href="/sign-in">Go to sign in</Link></p>
-    </main>
+    <Card>
+      <CardHeader>
+        <CardTitle>Email verified</CardTitle>
+        <CardDescription>Your account is now active.</CardDescription>
+      </CardHeader>
+      <CardFooter>
+        <Button render={<Link href="/sign-in">Go to sign in</Link>} nativeButton={false} className="w-full" />
+      </CardFooter>
+    </Card>
   );
 }
