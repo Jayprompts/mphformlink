@@ -1,12 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <Link href="/" className={`flex items-center gap-2 font-semibold tracking-tight ${className ?? ""}`}>
-      <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground text-xs font-bold">
-        M
-      </span>
-      <span>MPHFormLink</span>
+    <Link href="/" className={`flex items-center ${className ?? ""}`}>
+      <Image
+        src="/images/logo-dark.png"
+        alt="MPH Form Relay"
+        width={1276}
+        height={496}
+        priority
+        className="h-8 w-auto"
+      />
     </Link>
   );
 }

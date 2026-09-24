@@ -14,9 +14,9 @@ export default function PrivacyPage() {
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold">1. Who this applies to</h2>
           <p className="text-muted-foreground">
-            This policy covers two groups: (a) people who create an MPHFormLink account (&quot;account holders&quot;), and
-            (b) people who submit a form on someone else&apos;s website that happens to be relayed through MPHFormLink
-            (&quot;submitters&quot;). Submitters never sign up for or interact with MPHFormLink directly — their data
+            This policy covers two groups: (a) people who create an MPH Form Relay account (&quot;account holders&quot;), and
+            (b) people who submit a form on someone else&apos;s website that happens to be relayed through MPH Form Relay
+            (&quot;submitters&quot;). Submitters never sign up for or interact with MPH Form Relay directly — their data
             passes through our service because an account holder embedded our endpoint on their own site.
           </p>
         </section>

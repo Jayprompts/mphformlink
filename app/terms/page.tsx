@@ -14,7 +14,7 @@ export default function TermsPage() {
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold">1. What this service is</h2>
           <p className="text-muted-foreground">
-            MPHFormLink lets you create endpoints that relay form submissions from your own website to your email
+            MPH Form Relay lets you create endpoints that relay form submissions from your own website to your email
             inbox. By creating an account or using an endpoint, you agree to these terms.
           </p>
         </section>

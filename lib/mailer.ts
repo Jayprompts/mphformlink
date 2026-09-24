@@ -8,13 +8,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const FROM_ADDRESS = `MPHFormLink <${process.env.GMAIL_USER}>`;
+const FROM_ADDRESS = `MPH Form Relay <${process.env.GMAIL_USER}>`;
 
 export async function sendVerificationEmail(to: string, verifyUrl: string) {
   await transporter.sendMail({
     from: FROM_ADDRESS,
     to,
-    subject: "Verify your email — MPHFormLink",
+    subject: "Verify your email — MPH Form Relay",
     html: `
       <p>Click the link below to verify your email:</p>
       <p><a href="${verifyUrl}">${verifyUrl}</a></p>
@@ -31,9 +31,9 @@ export async function sendEndpointVerificationEmail(
   await transporter.sendMail({
     from: FROM_ADDRESS,
     to,
-    subject: `Verify destination email for "${endpointName}" — MPHFormLink`,
+    subject: `Verify destination email for "${endpointName}" — MPH Form Relay`,
     html: `
-      <p>Someone set up an MPHFormLink endpoint called <strong>${endpointName}</strong> to relay form submissions to this address.</p>
+      <p>Someone set up an MPH Form Relay endpoint called <strong>${endpointName}</strong> to relay form submissions to this address.</p>
       <p>Click below to verify and activate it:</p>
       <p><a href="${verifyUrl}">${verifyUrl}</a></p>
       <p>If you didn't expect this, you can safely ignore this email.</p>
